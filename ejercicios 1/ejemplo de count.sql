@@ -17,3 +17,4 @@ INSERT INTO empleados (nombre, departamento, salario) VALUES ('Juan', 'Ventas', 
 SELECT COUNT(*) AS total_empleados FROM empleados;
 
 SELECT COUNT(*) AS total_ventas FROM empleados WHERE departamento = 'Ventas';
+
