@@ -144,12 +144,29 @@ select nombre_em,salario_em from  empleados where  id_em > 19709802;
 select * from  empleados where salario_em < 1500000  && sex_em = "M"  ;
  
 -- 24
-
 SELECT e.nombre_em,c.nom_cargo, CASE WHEN e.nombre_em LIKE 'J%' THEN 'Grupo J' WHEN e.nombre_em LIKE '%Z' THEN 'Grupo Z' END AS Grupo FROM  empleados e 
 JOIN Cargo c ON e.cargo_em = c.id_cargo WHERE e.nombre_em LIKE 'J%' OR e.nombre_em LIKE '%Z' ORDER BY   Grupo, e.nombre_em ASC;
 
+-- 25
+SELECT salario_em AS Salario, id_em AS Documento_Identidad, nombre_em AS Nombre_Empleado FROM empleados WHERE salario_em > 1100000 ORDER BY id_em ASC;
+
+-- 26
+SELECT salario_em AS Salario, id_em AS Documento_Identidad, nombre_em AS Nombre_Empleado FROM empleados WHERE salario_em > 3300000 ORDER BY id_em ASC;
+
+-- 27
+SELECT e.nombre_em AS Nombre_Empleado FROM empleados e JOIN empleados j ON e.id_jefe_em = j.id_em WHERE e.salario_em > 1000000 &&  j.id_em = 31840269;
+
+-- 28
+SELECT e.nombre_em AS Nombre_Empleado FROM empleados e LEFT JOIN empleados j ON e.id_jefe_em = j.id_em WHERE e.salario_em <= 1000000 OR j.id_em IS NULL OR j.id_em != 31840269;
+
+-- 29
+SELECT nombre_em AS Nombre_Empleado FROM empleados WHERE nombre_em NOT LIKE '%MA%';
+
+SELECT nom_dep AS Nombre_Departamento,  ciudad_dep AS Ciudad FROM Departamento WHERE  nom_dep NOT IN ('Ventas', 'Investigación', 'Mantenimiento') ORDER BY ciudad_dep ASC;
 
 
+
+    
 
 
 
